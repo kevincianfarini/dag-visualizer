@@ -1,6 +1,7 @@
 export enum DagElementTypes {
     Node = "node",
-    Edge = "edge"
+    SolidEdge = "solid-edge",
+    DottedEdge = "dotted-edge"
 }
 
 export interface DagElement {

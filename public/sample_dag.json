@@ -24,25 +24,25 @@
     },
     {
         "id": "fromNodeToAnotherNode",
-        "type": "edge",
+        "type": "solid-edge",
         "source": "someNode",
         "target": "anotherNode"
     },
     {
         "id": "fromAnotherNodeToThirdNode",
-        "type": "edge",
+        "type": "dotted-edge",
         "source": "anotherNode",
         "target": "thirdNode"
     },
     {
         "id": "fromFourthNodeToAnotherNode",
-        "type": "edge",
+        "type": "dotted-edge",
         "source": "fourthNode",
         "target": "anotherNode"
     },
     {
         "id": "fromfifthNodeToThirdNode",
-        "type": "edge",
+        "type": "dotted-edge",
         "source": "fifthNode",
         "target": "thirdNode"
     }

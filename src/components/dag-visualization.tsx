@@ -7,19 +7,16 @@ import { convertDagElementsToElementDefinitions } from '../visualization/cytosca
 import { useRef, useCallback } from 'react';
 
 const HIGHLIGHT_CLASS_NAME = "highlight"
+const DOTTED_CLASS_NAME = "dotted"
+const SOLID_CLASS_NAME = "solid"
 
 function addHighlightToNodeAndConnections(collection: Collection): void {
     collection.addClass(HIGHLIGHT_CLASS_NAME)
-
-    // collection.nodes().successors().addClass(HIGHLIGHT_CLASS_NAME)
     collection.nodes().predecessors().addClass(HIGHLIGHT_CLASS_NAME)
-
 }
 
 function removeHighlightFromNodeAndConnections(collection: Collection): void {
-
     collection.removeClass(HIGHLIGHT_CLASS_NAME)
-
     collection.nodes().successors().removeClass(HIGHLIGHT_CLASS_NAME)
     collection.nodes().predecessors().removeClass(HIGHLIGHT_CLASS_NAME)
 
@@ -87,6 +84,12 @@ export function DagVisualizationComponent(props: { dagElements: DagElement[], cy
                 'target-arrow-shape': 'triangle',
                 'curve-style': 'bezier',
                 // 'label': 'data(id)'
+            }
+        },
+        {
+            selector: `edge.${DOTTED_CLASS_NAME}`,
+            style: {
+                'line-style': 'dashed'
             }
         },
         {
