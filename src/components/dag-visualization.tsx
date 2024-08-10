@@ -11,7 +11,7 @@ const HIGHLIGHT_CLASS_NAME = "highlight"
 function addHighlightToNodeAndConnections(collection: Collection): void {
     collection.addClass(HIGHLIGHT_CLASS_NAME)
 
-    collection.nodes().successors().addClass(HIGHLIGHT_CLASS_NAME)
+    // collection.nodes().successors().addClass(HIGHLIGHT_CLASS_NAME)
     collection.nodes().predecessors().addClass(HIGHLIGHT_CLASS_NAME)
 
 }
