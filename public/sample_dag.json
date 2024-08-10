@@ -1,11 +1,11 @@
 [
     {
-        "id": "someNode",
+        "id": "firstNode",
         "type": "node",
         "colorKey": "type-a"
     },
     {
-        "id": "anotherNode",
+        "id": "secondNode",
         "type": "node"
     },
     {
@@ -23,27 +23,47 @@
         "type": "node"
     },
     {
-        "id": "fromNodeToAnotherNode",
-        "type": "solid-edge",
-        "source": "someNode",
-        "target": "anotherNode"
+        "id": "sixthNode",
+        "type": "node"
     },
     {
-        "id": "fromAnotherNodeToThirdNode",
-        "type": "dotted-edge",
-        "source": "anotherNode",
+        "id": "seventhNode",
+        "type": "node"
+    },
+    {
+        "id": "fromFirstToThird",
+        "type": "solid-edge",
+        "source": "firstNode",
         "target": "thirdNode"
     },
     {
-        "id": "fromFourthNodeToAnotherNode",
+        "id": "fromSecondToThird",
+        "type": "dotted-edge",
+        "source": "secondNode",
+        "target": "thirdNode"
+    },
+    {
+        "id": "fromThirdToFifth",
+        "type": "solid-edge",
+        "source": "thirdNode",
+        "target": "fifthNode"
+    },
+    {
+        "id": "fromFourthToFifth",
         "type": "dotted-edge",
         "source": "fourthNode",
-        "target": "anotherNode"
+        "target": "fifthNode"
     },
     {
-        "id": "fromfifthNodeToThirdNode",
+        "id": "fromFifthToSeventh",
         "type": "dotted-edge",
         "source": "fifthNode",
-        "target": "thirdNode"
+        "target": "seventhNode"
+    },
+    {
+        "id": "fromSixthToSeventh",
+        "type": "dotted-edge",
+        "source": "sixthNode",
+        "target": "seventhNode"
     }
 ]

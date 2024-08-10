@@ -1,4 +1,4 @@
-import cytoscape, { Collection, CollectionReturnValue } from 'cytoscape';
+import cytoscape, { Collection, CollectionReturnValue, NodeCollection, NodeSingular } from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 
 import CytoscapeComponent from 'react-cytoscapejs';
@@ -11,8 +11,23 @@ const DOTTED_CLASS_NAME = "dotted"
 const SOLID_CLASS_NAME = "solid"
 
 function addHighlightToNodeAndConnections(collection: Collection): void {
+    // Select this manually selected node. 
     collection.addClass(HIGHLIGHT_CLASS_NAME)
-    collection.nodes().predecessors().addClass(HIGHLIGHT_CLASS_NAME)
+    // Unconditionally select all direct prececessors. 
+    collection.nodes().incomers().addClass(HIGHLIGHT_CLASS_NAME)
+    // Recursively highlight all predecessors that are connected via solid edges. 
+    addHighlightToPredecessorNodes(collection.nodes().incomers('node'))
+}
+
+function addHighlightToPredecessorNodes(nodes: NodeCollection): void {
+    // Given a list of nodes that have already been highlighted, 
+    // find each node's incoming edges and nodes connected via a solid line
+    // and highlight them. Then recurse. 
+    const connectedSolidEdges = nodes.incomers('.solid')
+    connectedSolidEdges.addClass(HIGHLIGHT_CLASS_NAME)
+    const sourceNodes = connectedSolidEdges.sources()
+    sourceNodes.addClass(HIGHLIGHT_CLASS_NAME)
+    addHighlightToPredecessorNodes(sourceNodes)
 }
 
 function removeHighlightFromNodeAndConnections(collection: Collection): void {

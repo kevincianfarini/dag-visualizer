@@ -3,13 +3,19 @@ import ColorHash from 'color-hash'
 import { DagElement, DagElementTypes } from "../entities/dag-element";
 
 const DOTTED_CLASS_NAME = "dotted"
+const SOLID_CLASS_NAME = "solid"
 
 export function convertDagElementToElementDefinition(dagElement: DagElement): cytoscape.ElementDefinition {
     const colorHash = new ColorHash()
     const backgroundColor = dagElement.colorKey !== undefined ? colorHash.rgb(dagElement.colorKey) : "gray"
-    console.log(dagElement.type)
+    var className = ''
+    if (dagElement.type === DagElementTypes.DottedEdge) {
+        className = DOTTED_CLASS_NAME
+    } else if (dagElement.type === DagElementTypes.SolidEdge) {
+        className = SOLID_CLASS_NAME
+    }
     return {
-        classes: `${dagElement.type == DagElementTypes.DottedEdge ? DOTTED_CLASS_NAME : ''}`,
+        classes: className,
         data: {
             id: dagElement.id,
             source: dagElement.source,
