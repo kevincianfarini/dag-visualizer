@@ -4,7 +4,7 @@ export enum DagElementTypes {
     DottedEdge = "dotted-edge"
 }
 
-export interface DagElement {
+export class DagElement {
     /**
      * Unique identifier of this element.
      */
@@ -34,4 +34,20 @@ export interface DagElement {
      * A value that will be used to automatically map to a color for the node/edge
      */
     colorKey?: string
+
+    constructor(
+        id: string, 
+        type: DagElementTypes, 
+        source?: string, 
+        target?: string, 
+        shortDescription?: string,
+        colorKey?: string
+    ) {
+        this.id = id
+        this.type = type
+        this.source = source
+        this.target = target
+        this.shortDescription = shortDescription
+        this.colorKey = colorKey
+    }
 }
