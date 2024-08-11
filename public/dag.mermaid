@@ -15,6 +15,10 @@
 :usage:repository:impl -.-> :androidApp
 :usage:ui-model --> :usage:android-ui
 :usage:android-ui -.-> :androidApp
-:some-internal-module -.-> :usage:viewmodel
-:some-internal-module -.-> :product-agreement:viewmodel
-:base:domain-model --> :some-internal-module
+:product-agreement:domain-model --> :product-agreement:service
+:graphql-queries -.-> :product-agreement:service
+:graphql-queries -.-> :usage:service
+:usage:service --> :usage:repository:impl
+:apollo-runtime --> :graphql-queries
+:apollo-runtime --> :usage:service
+:apollo-runtime --> :product-agreement:service

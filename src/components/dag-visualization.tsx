@@ -94,8 +94,8 @@ export function DagVisualizationComponent(props: { dagElements: DagElement[], cy
             selector: 'edge',
             style: {
                 'width': 3,
-                'line-color': '#ccc',
-                'target-arrow-color': '#ccc',
+                'line-color': '#f4f4f4',
+                'target-arrow-color': '#f4f4f4',
                 'target-arrow-shape': 'triangle',
                 'curve-style': 'bezier',
                 // 'label': 'data(id)'
