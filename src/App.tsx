@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './App.css';
 import { DagVisualizationComponent } from './components/dag-visualization';
-import { Container, Stack } from 'react-bootstrap';
 import { DAGInput } from './components/dag-controls';
 import { DagElement, DagElementTypes } from './entities/dag-element';
 
@@ -11,12 +10,10 @@ function App() {
     setDagText(intput)
   }
   return (
-    <Stack direction='horizontal'>
+    <div>
       <DAGInput onDagUpdated={dagTextUpdated} />
-      <Container>
-        <DagVisualizationComponent dagElements={mapInputToDagElements(dagText)} />
-      </Container>
-    </Stack>
+      <DagVisualizationComponent dagElements={mapInputToDagElements(dagText)} />
+    </div>
   );
 }
 

@@ -58,7 +58,7 @@ export function DagVisualizationComponent(props: { dagElements: DagElement[] }) 
 
     const style: React.CSSProperties = {
         // "background": "gray",
-        "width": "max-width",
+        "width": "100vw",
         "height": "100vh",
     }
 
