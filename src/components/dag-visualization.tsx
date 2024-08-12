@@ -86,7 +86,7 @@ export function DagVisualizationComponent(props: { dagElements: DagElement[] }) 
                 'line-color': '#f4f4f4',
                 'target-arrow-color': '#f4f4f4',
                 'target-arrow-shape': 'triangle',
-                'curve-style': 'bezier',
+                'curve-style': 'haystack',
                 // 'label': 'data(id)'
             }
         },
@@ -112,7 +112,7 @@ export function DagVisualizationComponent(props: { dagElements: DagElement[] }) 
             style: {
                 // 'label': 'data(id)',
                 'line-color': 'red',
-                'target-arrow-color': 'black',
+                'target-arrow-color': 'red',
                 'transition-property': 'line-color target-arrow-color',
                 'transition-duration': 2,
                 'transition-timing-function': 'ease-in'
