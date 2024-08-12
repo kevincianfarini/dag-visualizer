@@ -1,4 +1,4 @@
-import cytoscape, { Collection, CollectionReturnValue, NodeCollection, NodeSingular } from 'cytoscape';
+import cytoscape, { Collection, NodeCollection } from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 
 import CytoscapeComponent from 'react-cytoscapejs';
@@ -8,7 +8,7 @@ import { useRef, useCallback } from 'react';
 
 const HIGHLIGHT_CLASS_NAME = "highlight"
 const DOTTED_CLASS_NAME = "dotted"
-const SOLID_CLASS_NAME = "solid"
+const SOLID_CLASS_NAME = ".solid"
 
 function addHighlightToNodeAndConnections(collection: Collection): void {
     // Select this manually selected node. 
@@ -23,7 +23,7 @@ function addHighlightToPredecessorNodes(nodes: NodeCollection): void {
     // Given a list of nodes that have already been highlighted, 
     // find each node's incoming edges and nodes connected via a solid line
     // and highlight them. Then recurse. 
-    const connectedSolidEdges = nodes.incomers('.solid')
+    const connectedSolidEdges = nodes.incomers(SOLID_CLASS_NAME)
     connectedSolidEdges.addClass(HIGHLIGHT_CLASS_NAME)
     const sourceNodes = connectedSolidEdges.sources()
     sourceNodes.addClass(HIGHLIGHT_CLASS_NAME)
@@ -37,7 +37,7 @@ function removeHighlightFromNodeAndConnections(collection: Collection): void {
 
 }
 
-export function DagVisualizationComponent(props: { dagElements: DagElement[], cyRef(cy: cytoscape.Core): void }) {
+export function DagVisualizationComponent(props: { dagElements: DagElement[] }) {
     cytoscape.use(dagre)
 
     const cy = useRef<cytoscape.Core | null>(null);
@@ -52,11 +52,8 @@ export function DagVisualizationComponent(props: { dagElements: DagElement[], cy
                 const target: Collection[] = event.target
                 removeHighlightFromNodeAndConnections(target[0])
             })
-            props.cyRef(cy.current)
-
-
         },
-        [cy, props],
+        [cy],
     );
 
     const style: React.CSSProperties = {

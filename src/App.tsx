@@ -1,29 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import { DagVisualizationComponent } from './components/dag-visualization';
 import { Container, Stack } from 'react-bootstrap';
 import { DAGInput } from './components/dag-controls';
 import { DagElement, DagElementTypes } from './entities/dag-element';
-import cytoscape from 'cytoscape';
-
 
 function App() {
-
   const [dagText, setDagText] = useState<string>("")
-  const [cy, setCy] = useState<cytoscape.Core | null>(null)
-
   function dagTextUpdated(intput: string) {
     setDagText(intput)
   }
-
   return (
     <Stack direction='horizontal'>
       <DAGInput onDagUpdated={dagTextUpdated} />
       <Container>
-        <DagVisualizationComponent
-          dagElements={mapInputToDagElements(dagText)}
-          cyRef={(cy: cytoscape.Core) => { setCy(cy) }}
-        />
+        <DagVisualizationComponent dagElements={mapInputToDagElements(dagText)} />
       </Container>
     </Stack>
   );

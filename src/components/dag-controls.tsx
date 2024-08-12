@@ -1,5 +1,5 @@
-import { FormEvent, useState } from "react"
-import { Container, Stack } from "react-bootstrap"
+import { useState } from "react"
+import { Stack } from "react-bootstrap"
 
 
 export const DAGInput = (props: { onDagUpdated(input: string): void }) => {
@@ -8,10 +8,10 @@ export const DAGInput = (props: { onDagUpdated(input: string): void }) => {
         // "width": "0vw",
         // "height": "100vh",
     }
-    const inputStyle: React.CSSProperties = {
-        // "width": "max-width",
-        // "height": "max-height",
-    }
+    // const inputStyle: React.CSSProperties = {
+    //     // "width": "max-width",
+    //     // "height": "max-height",
+    // }
     return <Stack style={sidebarStyle}>
         <h2>DAG Input</h2>
         <textarea onChange={ e => setState(e.target.value) } />

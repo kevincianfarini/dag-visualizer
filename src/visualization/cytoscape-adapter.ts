@@ -1,4 +1,4 @@
-import cytoscape, { Css } from "cytoscape";
+import cytoscape from "cytoscape";
 import ColorHash from 'color-hash'
 import { DagElement, DagElementTypes } from "../entities/dag-element";
 
