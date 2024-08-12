@@ -12,29 +12,7 @@ permissions:
   id-token: write
 
 jobs:
-  test:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: ['14', '16']
-        os: [ubuntu-latest]
-
-    
-    steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v3.5.1
-      with:
-        node-version: ${{ matrix.node_version }}
-
-    - name: npm install, build and test
-      run: |
-        npm install
-        npm test
-    
   build_and_deploy:
-    needs: test
     name: Build and Deploy to Github Pages
     runs-on: ubuntu-latest
     

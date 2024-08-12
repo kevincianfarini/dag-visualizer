@@ -37,14 +37,6 @@ function removeHighlightFromNodeAndConnections(collection: Collection): void {
 
 }
 
-export function removeAllHighlights(cy: cytoscape.Core) {
-    cy.$("*").removeClass(HIGHLIGHT_CLASS_NAME)
-}
-
-export function highlightCollection(collection: Collection | CollectionReturnValue) {
-    collection.addClass(HIGHLIGHT_CLASS_NAME)
-}
-
 export function DagVisualizationComponent(props: { dagElements: DagElement[], cyRef(cy: cytoscape.Core): void }) {
     cytoscape.use(dagre)
 
@@ -132,7 +124,7 @@ export function DagVisualizationComponent(props: { dagElements: DagElement[], cy
     ]
 
     if (props.dagElements.length === 0) {
-        return <strong>No DAG :(</strong>
+        return <div />
     }
 
     return <CytoscapeComponent
