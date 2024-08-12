@@ -100,7 +100,7 @@ export function DagVisualizationComponent(props: { dagElements: DagElement[] }) 
             selector: `node.${HIGHLIGHT_CLASS_NAME}`,
             style: {
                 // 'color': 'red',
-                'border-color': 'black',
+                'border-color': 'red',
                 'border-width': '2',
                 'transition-property': 'border-color border-width',
                 'transition-duration': 2,
@@ -111,7 +111,7 @@ export function DagVisualizationComponent(props: { dagElements: DagElement[] }) 
             selector: `edge.${HIGHLIGHT_CLASS_NAME}`,
             style: {
                 // 'label': 'data(id)',
-                'line-color': 'black',
+                'line-color': 'red',
                 'target-arrow-color': 'black',
                 'transition-property': 'line-color target-arrow-color',
                 'transition-duration': 2,
